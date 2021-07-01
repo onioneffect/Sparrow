@@ -18,6 +18,7 @@ class Sparrow(discord.Client):
 
 		return
 
+	# TODO: Maybe reload config file here?
 	async def hour_to_pfp(self, hour : int):
 		pfp_index = int(hour / self.settings.interval)
 
@@ -27,7 +28,7 @@ class Sparrow(discord.Client):
 		except AttributeError:
 			fpath = item[0]
 
-		#await self.user.edit(avatar=open(fpath, "rb").read())
+		await self.user.edit(avatar=open(fpath, "rb").read())
 		return fpath
 
 	# TODO: there's a small chance that this function
