@@ -31,7 +31,11 @@ class Sparrow(discord.Client):
 		avi = open(fpath, "rb")
 		await self.user.edit(avatar=avi.read())
 
-		status = discord.Game(item[1])
+		try:
+			status = discord.Game(self.settings.global_status)
+		except AttributeError:
+			status = discord.Game(item[1])
+
 		await self.change_presence(status=discord.Status.online, activity=status)
 
 		return

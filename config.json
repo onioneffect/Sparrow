@@ -5,6 +5,8 @@
 
 	"root": "PunPun/",
 
+	"global_status": "",
+
 	"rotation": [
 		["0.png", ""],
 		["1.png", ""],
