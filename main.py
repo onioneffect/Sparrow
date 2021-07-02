@@ -28,8 +28,13 @@ class Sparrow(discord.Client):
 		except AttributeError:
 			fpath = item[0]
 
-		await self.user.edit(avatar=open(fpath, "rb").read())
-		return fpath
+		avi = open(fpath, "rb")
+		await self.user.edit(avatar=avi.read())
+
+		status = discord.Game(item[1])
+		await self.change_presence(status=discord.Status.online, activity=status)
+
+		return
 
 	# TODO: there's a small chance that this function
 	# changes the profile picture in a very short interval
@@ -52,9 +57,6 @@ class Sparrow(discord.Client):
 		print("Logged in as", self.user)
 
 		asyncio.create_task(self.timercycle())
-
-		#my_game = discord.Game("placeholder")
-		#await self.change_presence(status=discord.Status.online, activity=my_game)
 
 if __name__ == "__main__":
 	import sys
