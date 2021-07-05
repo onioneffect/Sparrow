@@ -7,6 +7,8 @@
 
 	"global_status": "",
 
+	"tzshift": 0,
+
 	"rotation": [
 		["0.png", ""],
 		["1.png", ""],

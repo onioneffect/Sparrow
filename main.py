@@ -50,7 +50,7 @@ class Sparrow(discord.Client):
 		self.settings.interval = int(self.settings.cycle / len(self.settings.rotation))
 
 		curr_time = datetime.datetime.now()
-		await self.hour_to_pfp(curr_time.hour)
+		await self.hour_to_pfp(curr_time.hour + self.settings.tzshift)
 
 		while True:
 			await self.sleep_till_reset(curr_time)

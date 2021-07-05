@@ -9,3 +9,8 @@ class Config:
 		except KeyError:
 			pass
 
+		try:
+			self.tzshift = j["tzshift"]
+		except KeyError:
+			self.tzshift = 0
+
